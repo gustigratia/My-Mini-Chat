@@ -1,0 +1,820 @@
+/* General body styling */
+body {
+    font-family: 'Roboto', sans-serif; /* Use Roboto font from Google Fonts */
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%); /* Vibrant pink gradient background */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default body margin */
+    color: #333; /* Default text color */
+}
+
+/* Main chat container (for chat.php and group_chat.php) */
+.chat-container {
+    background-color: #ffffff; /* White background for the chat box */
+    border-radius: 20px; /* Even more rounded corners */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); /* Stronger and softer shadow */
+    width: 100%;
+    max-width: 580px; /* Slightly wider chat box */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    overflow: hidden; /* Hide overflowing content (e.g., rounded corners) */
+    height: 90vh; /* Make chat box take up 90% of viewport height */
+    max-height: 800px; /* Limit max height for very large screens */
+    border: 3px solid rgba(255, 255, 255, 0.5); /* More prominent white border */
+}
+
+/* Chat header styling */
+.chat-header {
+    background: linear-gradient(45deg, #FF69B4 0%, #DA70D6 100%); /* Warm pink to purple gradient */
+    color: white; /* White text color */
+    padding: 20px 30px; /* Increased padding */
+    display: flex; /* Use flexbox for header content */
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Vertically align items */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* More prominent border */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow for header */
+}
+
+.chat-header h2 {
+    margin: 0; /* Remove default margin for h2 */
+    font-size: 1.8em; /* Larger font size */
+    font-weight: 700; /* Bold font weight */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* More pronounced text shadow */
+    flex-grow: 1; /* Allow title to take available space */
+    text-align: center; /* Center the title */
+}
+
+/* Styling for the back arrow link (Home button) */
+.back-arrow {
+    color: white; /* White color for the arrow */
+    text-decoration: none; /* Remove underline */
+    font-size: 2em; /* Larger font size for the arrow */
+    padding: 8px 15px; /* More padding around the arrow */
+    border-radius: 8px; /* More rounded corners */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition on hover */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Text shadow for arrow */
+}
+
+.back-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Lighter background on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Styling for header buttons (like leave group) */
+.header-button {
+    background: none; /* No background by default */
+    border: none;
+    color: white;
+    font-size: 1.6em; /* Larger icon size */
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Text shadow for icon */
+}
+
+.header-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.header-button:active {
+    transform: translateY(0);
+}
+
+/* Specific styling for the leave group button in header */
+.leave-group-button-header {
+    color: #FFD1DC; /* Soft pinkish red for icon */
+}
+.leave-group-button-header:hover {
+    background-color: rgba(255, 20, 147, 0.4); /* Deep pink hover */
+}
+
+
+/* Status message (for add/leave group feedback and login/register) */
+.status-message {
+    padding: 12px 25px; /* More padding */
+    margin: 15px 25px; /* More margin */
+    border-radius: 10px; /* More rounded corners */
+    font-weight: bold;
+    text-align: center;
+    transition: opacity 0.5s ease-out, height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.status-message.success {
+    background-color: #E6FFE6; /* Lighter green */
+    color: #28A745; /* Darker green text */
+    border: 1px solid #A0E0A0; /* Green border */
+}
+
+.status-message.error {
+    background-color: #FFE6E6; /* Lighter red */
+    color: #DC3545; /* Darker red text */
+    border: 1px solid #E0A0A0; /* Red border */
+}
+
+.status-message.warning {
+    background-color: #FFFACD; /* Lighter yellow */
+    color: #FFC107; /* Darker yellow text */
+    border: 1px solid #FFE8A0; /* Yellow border */
+}
+
+
+/* Chat messages display area */
+.chat-box {
+    flex-grow: 1; /* Allows chat box to take available space */
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-color: #f0f2f5; /* Slightly darker light grey background for message area */
+    display: flex;
+    flex-direction: column; /* Arrange messages in a column */
+}
+
+/* Wrapper for each chat message bubble to control alignment */
+.chat-message {
+    display: flex; /* Use flexbox to align the bubble */
+    width: 100%; /* Take full width */
+    margin-bottom: 12px; /* Space between messages */
+}
+
+/* General styling for the message bubble */
+.bubble {
+    padding: 12px 18px; /* Padding inside the bubble */
+    border-radius: 20px; /* Rounded message bubbles */
+    max-width: 85%; /* Limit message width */
+    word-wrap: break-word; /* Break long words */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for bubbles */
+    position: relative; /* For timestamp positioning */
+}
+
+/* Styling for sender name inside the bubble */
+.sender {
+    font-weight: bold;
+    font-size: 0.95em; /* Slightly larger font */
+    margin-bottom: 5px;
+}
+
+/* Styling for the message text inside the bubble */
+.text {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/* Styling for timestamp inside the bubble */
+.timestamp {
+    font-size: 0.8em; /* Slightly larger timestamp */
+    text-align: right;
+    margin-top: 5px;
+    opacity: 0.8; /* Slightly transparent */
+}
+
+/* Styling for messages sent by the current user (right side) */
+.from-me {
+    align-self: flex-end; /* Align the entire chat-message div to the right */
+    background: linear-gradient(45deg, #FF1493, #FF69B4); /* Deep pink to hot pink gradient for sent messages */
+    color: white; /* White text for sent messages */
+    margin-left: auto; /* Push to the right */
+    border-bottom-right-radius: 5px; /* Sharpen bottom-right corner for "tail" effect */
+}
+
+.from-me .sender {
+    color: rgba(255, 255, 255, 0.95); /* Lighter sender name for contrast */
+}
+
+.from-me .timestamp {
+    color: rgba(255, 255, 255, 0.85); /* Lighter timestamp for contrast */
+}
+
+/* Styling for messages from the recipient (left side) */
+.from-them {
+    align-self: flex-start; /* Align the entire chat-message div to the left */
+    background-color: #E0E0E0; /* Light grey for received messages */
+    color: #333; /* Dark text for received messages */
+    margin-right: auto; /* Push to the left */
+    border-bottom-left-radius: 5px; /* Sharpen bottom-left corner for "tail" effect */
+}
+
+.from-them .sender {
+    color: #444; /* Darker grey for sender name */
+}
+
+.from-them .timestamp {
+    color: #777; /* Lighter grey for timestamp */
+}
+
+/* Chat input form */
+.chat-form {
+    display: flex; /* Use flexbox for input and button */
+    padding: 15px 20px;
+    background-color: #f0f2f5; /* Light background for the form area */
+    border-top: 1px solid #e0e0e0; /* Lighter border at the top */
+}
+
+.chat-input {
+    flex-grow: 1; /* Input takes most of the space */
+    padding: 12px 18px; /* More padding */
+    border: 1px solid #ced4da; /* Light grey border */
+    border-radius: 25px; /* More rounded input field */
+    font-size: 1.05em; /* Slightly larger font */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for focus */
+}
+
+.chat-input:focus {
+    outline: none;
+    border-color: #FF69B4; /* Pink border on focus */
+    box-shadow: 0 0 0 0.25rem rgba(255, 105, 180, 0.3); /* Pink shadow on focus */
+}
+
+/* Send button styling */
+.chat-submit {
+    background: linear-gradient(45deg, #FF69B4, #DA70D6); /* Hot pink to orchid gradient */
+    color: white;
+    border: none;
+    padding: 12px 25px; /* More padding */
+    border-radius: 25px; /* More rounded button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1.05em; /* Slightly larger font */
+    font-weight: bold;
+    transition: background 0.3s, transform 0.1s, box-shadow 0.2s; /* Smooth transitions */
+    box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4); /* Stronger shadow for button */
+}
+
+.chat-submit:hover {
+    background: linear-gradient(45deg, #DA70D6, #BA55D3); /* Lighter gradient on hover */
+    transform: translateY(-3px); /* More pronounced lift effect on hover */
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5); /* Stronger shadow on hover */
+}
+
+.chat-submit:active {
+    transform: translateY(0); /* Reset position on click */
+    box-shadow: 0 2px 5px rgba(255, 105, 180, 0.2); /* Smaller shadow on active */
+}
+
+/* Group actions section (Add Member only now) */
+.group-actions {
+    padding: 20px;
+    background-color: #f0f2f5;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.group-actions h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.2em;
+}
+
+.add-member-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Space between forms */
+}
+
+.form-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 0.95em;
+    max-width: 250px; /* Limit input width */
+}
+
+.form-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.add-button {
+    background: linear-gradient(45deg, #BA55D3, #DA70D6); /* Medium Orchid to Orchid gradient */
+    color: white;
+    box-shadow: 0 4px 10px rgba(186, 85, 211, 0.3);
+}
+
+.add-button:hover {
+    background: linear-gradient(45deg, #DA70D6, #BA55D3);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(186, 85, 211, 0.4);
+}
+
+/* Removed .leave-group-form and .leave-button styles as they are now in the header */
+
+/* --- Homepage Specific Styles --- */
+
+.homepage-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px; /* Slightly wider for homepage */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 70vh; /* Minimum height for homepage */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.homepage-header {
+    background: linear-gradient(45deg, #FF69B4, #DA70D6); /* Hot pink to Orchid gradient */
+    color: white;
+    padding: 20px 25px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.homepage-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.homepage-content {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between sections */
+}
+
+.section-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+}
+
+.section-card h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #FF69B4; /* Hot pink heading for sections */
+    font-size: 1.3em;
+    border-bottom: 2px solid #FFD1DC; /* Light pink border */
+    padding-bottom: 10px;
+}
+
+.chat-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Space between chat links */
+}
+
+.chat-link-item {
+    display: flex;
+    justify-content: space-between; /* Distribute items horizontally */
+    align-items: center;
+    background-color: #ffffff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s, transform 0.1s;
+    border: 1px solid #dee2e6;
+}
+
+.chat-link-item:hover {
+    background-color: #FFD1DC; /* Light pink on hover */
+    transform: translateY(-1px);
+}
+
+.chat-link-item strong {
+    color: #FF69B4; /* Hot pink for names */
+}
+
+/* Styling for private chat items */
+.private-chat-item {
+    display: flex; /* Use flexbox for inner content */
+    justify-content: space-between; /* Space out name/message and timestamp */
+    align-items: center;
+}
+
+.private-chat-item > div { /* Wrapper for name and last message */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    flex-grow: 1;
+    overflow: hidden; /* Hide overflowing text */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+}
+
+.private-chat-item .last-message {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 2px; /* Small space below name */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; /* Ensure it respects parent width */
+}
+
+.private-chat-item .last-message-time {
+    font-size: 0.8em;
+    color: #888;
+    margin-left: 10px; /* Space from message */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+
+.group-chat-item .last-message {
+    font-size: 0.9em;
+    color: #666;
+    flex-grow: 1; /* Allows message to take space */
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for long messages */
+}
+
+.group-chat-item .last-message-time {
+    font-size: 0.8em;
+    color: #888;
+    margin-left: 10px;
+}
+
+.group-actions-homepage {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s, box-shadow 0.2s;
+    border: none;
+    text-align: center;
+}
+
+.create-group-button {
+    background: linear-gradient(45deg, #DA70D6, #BA55D3); /* Orchid to Medium Orchid gradient */
+    color: white;
+    box-shadow: 0 4px 10px rgba(218, 112, 214, 0.3);
+}
+
+.create-group-button:hover {
+    background: linear-gradient(45deg, #BA55D3, #DA70D6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(218, 112, 214, 0.4);
+}
+
+.homepage-footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #f0f2f5;
+    border-top: 1px solid #e0e0e0;
+}
+
+.logout-button {
+    background: linear-gradient(45deg, #FF6B6B, #FF8E8E); /* Red to lighter red gradient */
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+.logout-button:hover {
+    background: linear-gradient(45deg, #FF8E8E, #FF6B6B);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* --- Login Page Specific Styles --- */
+.login-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px; /* Smaller width for login form */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 400px; /* Minimum height */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 20px; /* Add padding at the bottom for footer */
+}
+
+.login-header {
+    background: linear-gradient(45deg, #FF69B4, #DA70D6); /* Hot pink to Orchid gradient */
+    color: white;
+    padding: 20px 25px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px; /* Space below header */
+}
+
+.login-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between inputs */
+    padding: 0 30px; /* Horizontal padding */
+    flex-grow: 1; /* Allow form to take available space */
+    justify-content: center; /* Center form elements vertically */
+}
+
+.login-input {
+    padding: 12px 18px;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.login-input:focus {
+    outline: none;
+    border-color: #FF69B4; /* Hot pink border on focus */
+    box-shadow: 0 0 0 0.25rem rgba(255, 105, 180, 0.3); /* Hot pink shadow on focus */
+}
+
+.login-button {
+    background: linear-gradient(45deg, #FF1493, #FF69B4); /* Deep pink to Hot pink gradient for login button */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(255, 20, 147, 0.3);
+    margin-top: 10px; /* Space above button */
+}
+
+.login-button:hover {
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
+}
+
+.login-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(255, 20, 147, 0.2);
+}
+
+.login-footer {
+    text-align: center;
+    padding: 20px 30px 0; /* Padding at the bottom */
+    font-size: 0.95em;
+    color: #555;
+}
+
+.login-footer a {
+    color: #FF69B4; /* Hot pink for links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.login-footer a:hover {
+    color: #FF1493; /* Deep pink on hover */
+    text-decoration: underline;
+}
+
+/* --- Register Page Specific Styles --- */
+.register-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px; /* Slightly wider than login for more inputs */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 550px; /* Adjusted minimum height for more inputs */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 20px;
+}
+
+.register-header {
+    background: linear-gradient(45deg, #FF69B4, #DA70D6); /* Hot pink to Orchid gradient */
+    color: white;
+    padding: 20px 25px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+}
+
+.register-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 30px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.register-input {
+    padding: 12px 18px;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.register-input:focus {
+    outline: none;
+    border-color: #FF69B4; /* Hot pink border on focus */
+    box-shadow: 0 0 0 0.25rem rgba(255, 105, 180, 0.3); /* Hot pink shadow on focus */
+}
+
+.register-button {
+    background: linear-gradient(45deg, #FF1493, #FF69B4); /* Deep pink to Hot pink gradient for register button */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(255, 20, 147, 0.3);
+    margin-top: 10px;
+}
+
+.register-button:hover {
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
+}
+
+.register-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(255, 20, 147, 0.2);
+}
+
+.register-footer {
+    text-align: center;
+    padding: 20px 30px 0;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.register-footer a {
+    color: #FF69B4; /* Hot pink for links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.register-footer a:hover {
+    color: #FF1493; /* Deep pink on hover */
+    text-decoration: underline;
+}
+
+/* --- Add Group Page Specific Styles --- */
+.add-group-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px; /* Adjusted width for the form */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 500px; /* Adjusted minimum height */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.add-group-header {
+    background: linear-gradient(45deg, #FF69B4 0%, #DA70D6 100%); /* Hot pink to Orchid gradient */
+    color: white;
+    padding: 20px 25px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    display: flex; /* Use flexbox for header content */
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Vertically align items */
+}
+
+.add-group-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    flex-grow: 1; /* Allow title to take available space */
+    text-align: center; /* Center the title */
+}
+
+.add-group-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between form groups */
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.form-group {
+    margin-bottom: 10px; /* Space between form groups */
+}
+
+.add-group-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 1.05em;
+}
+
+.add-group-input {
+    width: calc(100% - 36px); /* Full width minus padding */
+    padding: 12px 18px;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.add-group-input:focus {
+    outline: none;
+    border-color: #FF69B4; /* Hot pink border on focus */
+    box-shadow: 0 0 0 0.25rem rgba(255, 105, 180, 0.3); /* Hot pink shadow on focus */
+}
+
+.members-list {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 200px; /* Limit height for scrollability */
+    overflow-y: auto; /* Enable scrolling for members list */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Inner shadow */
+}
+
+.add-group-checkbox-label {
+    display: flex; /* Use flex for checkbox and text alignment */
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 0.95em;
+    color: #444;
+    transition: color 0.2s;
+}
+
+.add-group-checkbox-label:hover {
+    color: #FF69B4; /* Hot pink on hover */
+}
+
+.add-group-checkbox-label input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Slightly larger checkbox */
+    accent-color: #FF69B4; /* Pink checkbox color */
+}
+
+.add-group-button {
+    background: linear-gradient(45deg, #FF1493, #FF69B4); /* Deep pink to Hot pink gradient */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(255, 20, 147, 0.3);
+    margin-top: 20px; /* Space above button */
+    width: 100%; /* Full width button */
+}
+
+.add-group-button:hover {
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
+}
+
+.add-group-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(255, 20, 147, 0.2);
+}
+
