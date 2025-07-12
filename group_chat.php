@@ -14,7 +14,7 @@ if (!$group_id) {
     exit;
 }
 
-$stmt = $conn->prepare("SELECT group_name, owner FROM groups WHERE group_id = ?");
+$stmt = $conn->prepare("SELECT group_name, owner FROM groupss WHERE group_id = ?");
 $stmt->bind_param("i", $group_id);
 $stmt->execute();
 $result = $stmt->get_result();
