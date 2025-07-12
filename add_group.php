@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $status_message = ['type' => 'error', 'text' => 'Nama grup tidak boleh kosong.'];
     } else {
 
-        $stmt = $conn->prepare("INSERT INTO groups (group_name, owner, created_date) VALUES (?, ?, CURDATE())");
+        $stmt = $conn->prepare("INSERT INTO groupss (group_name, owner, created_date) VALUES (?, ?, CURDATE())");
         $stmt->bind_param("si", $group_name, $me);
         if ($stmt->execute()) {
             $group_id = $conn->insert_id;
