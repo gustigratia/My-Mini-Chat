@@ -73,12 +73,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['leave_group'])) {
         if ($group_owner_id == $me) {
             $message_type = 'error';
-            $message_text = "Owner tidak bisa keluar dari grup.";
+            $message_text = "Owner cannot leave the group.";
         } else {
             $stmt = $conn->prepare("DELETE FROM group_member WHERE group_id = ? AND user_id = ?");
             $stmt->bind_param("ii", $group_id, $me);
             $stmt->execute();
-            $_SESSION['status_message'] = ['type' => 'success', 'text' => 'Kamu telah keluar dari grup.'];
+            $_SESSION['status_message'] = ['type' => 'success', 'text' => 'You have left the group.'];
             header("Location: index.php");
             exit;
         }
@@ -100,7 +100,7 @@ if (isset($_SESSION['status_message'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Grup - <?= $group_name ?></title>
+    <title>Group Chat - <?= $group_name ?></title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -111,7 +111,7 @@ if (isset($_SESSION['status_message'])) {
             <a href="index.php" class="back-arrow">⬅</a>
             <h2><?= $group_name ?></h2>
             <form method="POST" class="leave-group-form-header">
-                <button type="submit" name="leave_group" class="header-button leave-group-button-header" title="Keluar dari Grup">
+                <button type="submit" name="leave_group" class="header-button leave-group-button-header" title="Leave Group">
                     <i class="fas fa-sign-out-alt"></i>
                 </button>
             </form>
@@ -125,8 +125,8 @@ if (isset($_SESSION['status_message'])) {
 
         <div class="group-actions">
             <form method="POST" class="add-member-form">
-                <input type="text" name="new_username" placeholder="Username anggota baru" required class="form-input">
-                <button type="submit" name="add_member" class="form-button add-button">Tambah</button>
+                <input type="text" name="new_username" placeholder="new member username" required class="form-input">
+                <button type="submit" name="add_member" class="form-button add-button">Add</button>
             </form>
         </div>
 
@@ -134,8 +134,8 @@ if (isset($_SESSION['status_message'])) {
             </div>
 
         <form method="POST" class="chat-form">
-            <input type="text" name="message" required class="chat-input" placeholder="Ketik pesan...">
-            <button type="submit" class="chat-submit">Kirim</button>
+            <input type="text" name="message" required class="chat-input" placeholder="Type your message...">
+            <button type="submit" class="chat-submit">Send</button>
         </form>
     </div>
 

@@ -60,8 +60,8 @@ if ($row = $result->fetch_assoc()) {
             </div>
 
         <form method="POST" class="chat-form">
-            <input type="text" name="message" required class="chat-input" placeholder="Ketik pesan...">
-            <button type="submit" class="chat-submit">Kirim</button>
+            <input type="text" name="message" required class="chat-input" placeholder="Type your message...">
+            <button type="submit" class="chat-submit">Send</button>
         </form>
 
     </div>

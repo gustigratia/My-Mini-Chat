@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $selected_users = $_POST['members'] ?? [];
 
     if (empty($group_name)) {
-        $status_message = ['type' => 'error', 'text' => 'Nama grup tidak boleh kosong.'];
+        $status_message = ['type' => 'error', 'text' => 'Group name cannot be empty.'];
     } else {
 
         $stmt = $conn->prepare("INSERT INTO groupss (group_name, owner, created_date) VALUES (?, ?, CURDATE())");
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 }
             }
             
-            $_SESSION['status_message'] = ['type' => 'success', 'text' => 'Grup berhasil dibuat!'];
+            $_SESSION['status_message'] = ['type' => 'success', 'text' => 'Group created successfully!'];
             header("Location: index.php");
             exit();
         } else {

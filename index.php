@@ -83,7 +83,7 @@
                                 gc.message, 
                                 gc.timestamp,
                                 u.fullname AS sender_fullname /* Added sender's fullname */
-                            FROM groups g
+                            FROM groupss g
                             JOIN group_member gm ON g.group_id = gm.group_id
                             LEFT JOIN (
                                 SELECT 
@@ -105,7 +105,7 @@
                         $results = $stmt->get_result();
 
                         while ($row = $results->fetch_assoc()) {
-                            $msg = $row['message'] ? htmlspecialchars($row['message']) : '(belum ada pesan)';
+                            $msg = $row['message'] ? htmlspecialchars($row['message']) : '(No message yet)';
                             $time = $row['timestamp'] ? date('H:i', strtotime($row['timestamp'])) : '';
                             $sender_name = $row['sender_fullname'] ? htmlspecialchars($row['sender_fullname']) . ': ' : ''; // Display sender name if available
                             
